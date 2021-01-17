@@ -1,0 +1,42 @@
+pluginManagement {
+    repositories {
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/google/'
+        }
+        mavenCentral()
+        gradlePluginPortal()
+        maven {
+            url 'https://repo.spring.io/plugins-release'
+        }
+    }
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id == "org.jetbrains.kotlin.jvm") {
+                useVersion "${kotlinVersion}"
+            }
+            if (requested.id.id == "org.jetbrains.kotlin.plugin.spring") {
+                useVersion "${kotlinVersion}"
+            }
+        }
+    }
+}
+
+plugins {
+    id "com.gradle.enterprise" version "3.5.1"
+    id "io.spring.ge.conventions" version "0.0.7"
+}
+
+rootProject.name = 'wings-cloud'
+
+include "micro-services:wings-config-server"
+include "micro-services:wings-service-discover"
+include "micro-services:wings-gateway"
+
+file("${rootDir}").eachDirMatch(~/micro-services.*/) {
+    println "${it.name}"
+    include "micro-services:${it.name}"
+}
+

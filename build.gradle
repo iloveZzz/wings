@@ -1,0 +1,36 @@
+group 'com.works.wings'
+version '1.0-SNAPSHOT'
+
+repositories {
+    maven {
+        url 'https://maven.aliyun.com/repository/public/'
+    }
+    maven {
+        url 'https://maven.aliyun.com/repository/google/'
+    }
+
+}
+
+
+allprojects {
+    repositories {
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/google/'
+        }
+
+    }
+
+    buildscript {
+        repositories {
+            maven{ url 'https://maven.aliyun.com/repository/public/'}
+            maven{ url 'https://maven.aliyun.com/repository/google/'}
+        }
+    }
+
+}
+
+
+
