@@ -31,5 +31,5 @@ include "micro-services:wings-service-discover"
 include "micro-services:wings-gateway"
 include "micro-services:wings-authentication"
 include "micro-services:wings-integration"
-
+include 'wings-framework:wings-cache'
 
