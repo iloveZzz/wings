@@ -8,6 +8,7 @@ eureka:
       zone: beijing
     lease-renewal-interval-in-seconds: 10
   client:
+    registerWithEureka: false
     fetch-registry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
@@ -16,3 +17,10 @@ eureka:
 spring:
   application:
     name: wings-service-discover
+  cloud:
+    loadbalancer:
+      zone: beijing
+      ribbon:
+        enabled: true
+      eureka:
+        approximate-zone-from-hostname: false

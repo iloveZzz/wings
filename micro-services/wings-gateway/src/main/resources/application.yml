@@ -2,7 +2,11 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: after_route
-          uri: https://www.baidu.com
+        - id: wings-authentication-route
+          uri: lb://wings-authentication-dev
           predicates:
-            - Cookie=mycookie,mycookievalue
+            - Path=/wings-authentication-dev/**
+        - id: wings-config-server-route
+          uri: lb://wings-config-server
+          predicates:
+            - Path=/wings-config-server/**
