@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: after_route
+          uri: https://www.baidu.com
+          predicates:
+            - Cookie=mycookie,mycookievalue
