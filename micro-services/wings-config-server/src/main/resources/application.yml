@@ -1,0 +1,19 @@
+spring:
+  profiles:
+    active: composite
+  cloud:
+    config:
+      server:
+        composite:
+          -
+            type: native
+            search-locations: classpath:config/dev
+          - type: native
+            search-locations: classpath:config/pro
+        bootstrap: true
+  application:
+    name: wings-config-server
+
+server:
+  port: 8770
+
