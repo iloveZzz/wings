@@ -1,4 +1,11 @@
 eureka:
+    instance:
+        metadata-map:
+            zone: beijing
     client:
         serviceUrl:
             defaultZone: http://localhost:8761/eureka/
+        prefer-same-zone-eureka: true
+        region: beijing
+        initial-instance-info-replication-interval-seconds: 15
+        instance-info-replication-interval-seconds: 10

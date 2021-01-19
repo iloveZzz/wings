@@ -5,6 +5,8 @@ spring:
     config:
       server:
         composite:
+          - type: native
+            search-locations: classpath:config
           -
             type: native
             search-locations: classpath:config/dev

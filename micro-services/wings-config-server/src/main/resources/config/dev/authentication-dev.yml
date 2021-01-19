@@ -1,0 +1,10 @@
+server:
+  port: 8766
+spring:
+  application:
+    name: wings-authentication-${spring.profiles.active}
+eureka:
+  instance:
+    metadata-map:
+      zone: beijing
+      owner: dmz

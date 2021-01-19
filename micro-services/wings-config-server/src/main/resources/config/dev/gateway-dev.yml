@@ -2,4 +2,9 @@ server:
   port: 8765
 spring:
   application:
-    name: wings-gateways
+    name: wings-gateways-${spring.profiles.active}
+eureka:
+  instance:
+    metadata-map:
+      zone: beijing
+      owner: dmz

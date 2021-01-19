@@ -27,7 +27,7 @@ pluginManagement {
 rootProject.name = 'wings-cloud'
 
 include "micro-services:wings-config-server"
-include "micro-services:wings-service-discover"
+include "micro-services:wings-service-discover:eureka-server"
 include "micro-services:wings-gateway"
 include "micro-services:wings-authentication"
 include "micro-services:wings-integration"
