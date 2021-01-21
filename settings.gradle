@@ -26,10 +26,25 @@ pluginManagement {
 
 rootProject.name = 'wings-cloud'
 
-include "micro-services:wings-config-server"
-include "micro-services:wings-service-discover:eureka-server"
-include "micro-services:wings-gateway"
-include "micro-services:wings-authentication"
-include "micro-services:wings-integration"
-include 'wings-framework:wings-cache'
+//所有微服务项目
+include "micro-services"
+file("${rootDir}/micro-services").eachDirMatch(~/.*/) {
+    println "${it.name}"
+    include "micro-services:${it.name}"
+}
+file("${rootDir}/micro-services/wings-service-discover").eachDirMatch(~/.*/) {
+    println "${it.name}"
+    include "micro-services:wings-service-discover:${it.name}"
+}
 
+//所有微服务通用工具依赖
+//file("${rootDir}/micro-services-common").eachDirMatch(~/.*/) {
+//    println "${it.name}"
+//    include "micro-services-common:${it.name}"
+//}
+//所有微服务启用依赖 wings-framework
+//file("${rootDir}/wings-framework").eachDirMatch(~/.*/) {
+//    println "${it.name}"
+//    include "wings-framework:${it.name}"
+//}
+//所有微服务启用依赖 wings-boot

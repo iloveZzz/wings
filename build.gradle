@@ -1,17 +1,38 @@
 repositories {
+    maven{ url 'https://maven.aliyun.com/repository/public/'}
+    maven{ url 'https://maven.aliyun.com/repository/google/'}
     maven {
-        url 'https://maven.aliyun.com/repository/public/'
+        name = "remoteRepo"
+        url "http://192.168.102.27:8081/repository/dm"
+        credentials {
+            username "dm-admin"
+            password "admin123"
+        }
     }
-    maven {
-        url 'https://maven.aliyun.com/repository/google/'
-    }
-
 }
-
-
+buildscript {
+    repositories {
+        maven{ url 'https://maven.aliyun.com/repository/public/'}
+        maven{ url 'https://maven.aliyun.com/repository/google/'}
+        maven {
+            name = "remoteRepo"
+            url "http://192.168.102.27:8081/repository/dm"
+            credentials {
+                username "dm-admin"
+                password "admin123"
+            }
+        }
+    }
+}
 allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'maven'
+    apply plugin: 'maven-publish'
+
     group 'com.works.wings'
     version '1.0.1-SNAPSHOT'
+
     repositories {
         maven {
             url 'https://maven.aliyun.com/repository/public/'
@@ -19,19 +40,33 @@ allprojects {
         maven {
             url 'https://maven.aliyun.com/repository/google/'
         }
+        maven {
+            name = "remoteRepo"
+            url "http://192.168.102.27:8081/repository/dm"
+            credentials {
+                username "dm-admin"
+                password "admin123"
+            }
+        }
     }
     ext {
         set('springCloudVersion', "2020.0.0")
     }
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                repository(url: "http://192.168.102.27:8081/repository/dm-release/") {
+                    authentication(userName: "dm-admin", password: "admin123")
+                }
+            }
+        }
+    }
 
 }
-
-buildscript {
-
-    repositories {
-        maven{ url 'https://maven.aliyun.com/repository/public/'}
-        maven{ url 'https://maven.aliyun.com/repository/google/'}
+idea {
+    project {
+        jdkName = "11"
+        languageLevel = "11"
+        vcs = "Git"
     }
 }
-
-
