@@ -1,15 +1,7 @@
-<<<<<<< HEAD
 apply plugin: 'java'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'org.springframework.boot'
-=======
-plugins {
-    id 'org.springframework.boot' version '2.4.2'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'java'
-}
 apply plugin: 'maven-publish'
->>>>>>> 7461a2a4bf3e981128399c8b296ebdb115b5dcbe
 sourceCompatibility = '11'
 
 dependencies {
