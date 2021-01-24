@@ -7,8 +7,7 @@ spring:
         composite:
           - type: native
             search-locations: classpath:config
-          -
-            type: native
+          - type: native
             search-locations: classpath:config/dev
           - type: native
             search-locations: classpath:config/pro

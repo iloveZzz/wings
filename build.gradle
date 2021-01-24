@@ -1,5 +1,6 @@
 buildscript {
     repositories {
+        mavenLocal()
         maven{ url 'https://maven.aliyun.com/repository/public/'}
         maven{ url 'https://maven.aliyun.com/repository/google/'}
         maven {
@@ -22,6 +23,7 @@ apply plugin: 'maven'
 apply plugin: 'maven-publish'
 
 repositories {
+    mavenLocal()
     maven{ url 'https://maven.aliyun.com/repository/public/'}
     maven{ url 'https://maven.aliyun.com/repository/google/'}
     maven {
@@ -44,12 +46,14 @@ allprojects {
     version '1.0.1-SNAPSHOT'
 
     repositories {
+        mavenLocal()
         maven {
             url 'https://maven.aliyun.com/repository/public/'
         }
         maven {
             url 'https://maven.aliyun.com/repository/google/'
         }
+        maven {url 'https://dl.bintray.com/jetbrains/anko'}
         maven {
             name = "remoteRepo"
             url "http://192.168.102.27:8081/repository/dm"

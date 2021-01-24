@@ -1,10 +1,10 @@
-package com.asd.sadsss.demo;
+package com.works.wings.circuitbreaker;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoApplicationTests {
+class WingsCircuitbreakerApplicationTests {
 
     @Test
     void contextLoads() {

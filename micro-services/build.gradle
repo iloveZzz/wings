@@ -24,8 +24,8 @@ subprojects {
     publishing {
         publications {
             mavenJava(MavenPublication) {
-                if (project.name!='wings-service-discover'&&
-                        project.name!='micro-services'){
+                if (project.name != 'wings-service-discover' &&
+                        project.name != 'micro-services') {
                     from components.java
                     artifact sourcesJar
                     artifact javadocJar
@@ -70,7 +70,7 @@ subprojects {
         }
     }
     javadoc {
-        if(JavaVersion.current().isJava9Compatible()) {
+        if (JavaVersion.current().isJava9Compatible()) {
             options.addBooleanOption('html5', true)
         }
     }

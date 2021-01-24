@@ -28,16 +28,10 @@ rootProject.name = 'wings-cloud'
 
 //所有微服务项目
 file("${rootDir}/micro-services").eachDirMatch(~/wings.*/) {
-    if (it.name!="wings-service-discover"){
-        println "${it.name}"
         include "micro-services:${it.name}"
-    }
 }
 file("${rootDir}/micro-services/wings-service-discover").eachDirMatch(~/.*server/) {
-    if (it.name!="nacos-server"){
-        println "${it.name}"
         include "micro-services:wings-service-discover:${it.name}"
-    }
 }
 
 //所有微服务通用工具依赖
