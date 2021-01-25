@@ -6,7 +6,7 @@ spring:
       discovery:
         enabled: true
         service-id: wings-config-server
-      name: common,gateway
+      name: common,gateway,sentinel
 eureka:
   client:
     serviceUrl:
