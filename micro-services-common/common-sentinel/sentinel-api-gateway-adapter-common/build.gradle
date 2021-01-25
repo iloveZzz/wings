@@ -1,0 +1,8 @@
+apply plugin: "java"
+sourceCompatibility = "11"
+version "${sentinelVersion}"
+dependencies {
+    compile "com.alibaba.csp:sentinel-core:${sentinelVersion}"
+    compile "com.alibaba.csp:sentinel-parameter-flow-control:${sentinelVersion}"
+    compile "com.alibaba.csp:sentinel-transport-common:${sentinelVersion}"
+}

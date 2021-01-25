@@ -30,10 +30,12 @@ rootProject.name = 'wings-cloud'
 file("${rootDir}/micro-services").eachDirMatch(~/wings.*/) {
         include "micro-services:${it.name}"
 }
-file("${rootDir}/micro-services/wings-service-discover").eachDirMatch(~/.*server/) {
+file("${rootDir}/micro-services/wings-service-discover").eachDirMatch(~/.*eureka-server/) {
         include "micro-services:wings-service-discover:${it.name}"
 }
-
+file("${rootDir}/micro-services-common/common-sentinel").eachDirMatch(~/sentinel-.*/) {
+    include "micro-services-common:common-sentinel:${it.name}"
+}
 //所有微服务通用工具依赖
 //file("${rootDir}/micro-services-common").eachDirMatch(~/.*/) {
 //    println "${it.name}"

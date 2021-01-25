@@ -1,0 +1,68 @@
+//maven 打包到本地配置 start
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+
+    task sourcesJar(type: Jar) {
+        from sourceSets.main.allJava
+        archiveClassifier = 'sources'
+    }
+
+    task javadocJar(type: Jar) {
+        from javadoc
+        archiveClassifier = 'javadoc'
+    }
+
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                if (project.name != 'common-sentinel') {
+                    from components.java
+                    artifact sourcesJar
+                    artifact javadocJar
+                    versionMapping {
+                        usage('java-api') {
+                            fromResolutionOf('runtimeClasspath')
+                        }
+                        usage('java-runtime') {
+                            fromResolutionResult()
+                        }
+                    }
+
+                    pom {
+                        name = project.name
+                        description = project.name
+                        url = 'https://gitee.com/daoming/wings'
+                        properties = [
+                                "zhudaoming.shuai": "shi de"
+                        ]
+                        licenses {
+                            license {
+                                name = 'The Apache License, Version 2.0'
+                                url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                            }
+                        }
+                        developers {
+                            developer {
+                                id = 'zhu'
+                                name = 'daoming'
+                                email = '596167028@qq.com'
+                            }
+                        }
+                        scm {
+                            connection = 'scm:git:git://git@gitee.com:daoming/wings.git'
+                            developerConnection = 'scm:git:ssh://git@gitee.com:daoming/wings.git'
+                            url = 'https://gitee.com/daoming/wings'
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+    javadoc {
+        if (JavaVersion.current().isJava9Compatible()) {
+            options.addBooleanOption('html5', true)
+        }
+    }
+}

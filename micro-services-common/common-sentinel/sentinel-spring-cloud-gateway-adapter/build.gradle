@@ -1,0 +1,15 @@
+apply plugin: 'java'
+apply plugin: 'io.spring.dependency-management'
+sourceCompatibility = '11'
+dependencies {
+    compile 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+    compile 'org.springframework.cloud:spring-cloud-starter-gateway'
+    compile project(":micro-services-common:common-sentinel:sentinel-api-gateway-adapter-common")
+    compile "com.alibaba.csp:sentinel-reactor-adapter:${sentinelVersion}"
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
