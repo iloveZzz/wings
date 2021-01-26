@@ -1,8 +1,19 @@
-server:
-  port: 8765
 spring:
   application:
     name: wings-gateways-${spring.profiles.active}
+  cloud:
+    gateway:
+      routes:
+        - id: wings-authentication-route
+          uri: lb://wings-authentication-dev
+          predicates:
+            - Path=/wings-authentication-dev/**
+        - id: wings-config-server-route
+          uri: lb://wings-config-server
+          predicates:
+            - Path=/wings-config-server/**
+server:
+  port: 8765
 eureka:
   instance:
     metadata-map:

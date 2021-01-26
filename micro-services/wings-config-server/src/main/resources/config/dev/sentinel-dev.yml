@@ -1,0 +1,12 @@
+sentinel:
+  flow:
+    rules:
+      - app: wings-config-server
+        clusterMode: true
+        count: 100
+        resource: wings-config-context
+      - burstCount: 0
+        count: 10
+        maxQueueingTimeMs: 2000
+        resource: /app/test
+
