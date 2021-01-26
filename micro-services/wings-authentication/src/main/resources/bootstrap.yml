@@ -1,4 +1,11 @@
 spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          wings:
+            client-id: aasdd
+            client-secret: google-client-secret
   profiles:
     active: dev
   cloud:
@@ -13,4 +20,3 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
     prefer-same-zone-eureka: true
     region: beijing
-

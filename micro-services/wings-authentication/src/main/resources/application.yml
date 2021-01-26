@@ -1,0 +1,18 @@
+spring:
+  security:
+    oauth2:
+        client:
+          provider:
+            wings:
+              authorizationUri: https://gitee.com/oauth/authorize
+              tokenUri: https://gitee.com/oauth/token
+              user-info-uri: https://gitee.com/oauth/userinfo
+              jwk-set-uri: https://gitee.com/oauth/certs
+          registration:
+            wings:
+              client-id: 9b32127760bd6f4336edc6b30d55a66b9aa7734c01c72aa2414f911b36fba7f9
+              client-secret: 79da6d5869353061ec4c0f94fb66260dc305edf00cb4709712bc8123d9ff32f5
+              client-authentication-method: basic
+              authorization-grant-type: authorization_code
+              scope: emails,user_info
+              redirect_uri: http://localhost:8766/
