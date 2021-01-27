@@ -27,23 +27,14 @@ pluginManagement {
 rootProject.name = 'wings-cloud'
 
 //所有微服务项目
-file("${rootDir}/micro-services").eachDirMatch(~/wings.*/) {
-        include "micro-services:${it.name}"
-}
-file("${rootDir}/micro-services/wings-service-discover").eachDirMatch(~/.*eureka-server/) {
-        include "micro-services:wings-service-discover:${it.name}"
-}
-file("${rootDir}/micro-services-common/common-sentinel").eachDirMatch(~/sentinel-.*/) {
-    include "micro-services-common:common-sentinel:${it.name}"
-}
+include "micro-services:wings-authentication:oauth2-client-oidc"
+include "micro-services:wings-authentication:oauth2-webflux-resource-server"
+include "micro-services:wings-authentication:oauth2-authorization"
+include "micro-services:wings-authentication:oauth2-authorization-server"
+include "micro-services:wings-config-server"
+include "micro-services:wings-gateway"
+include "micro-services:wings-service-discover:eureka-server"
 //所有微服务通用工具依赖
-//file("${rootDir}/micro-services-common").eachDirMatch(~/.*/) {
-//    println "${it.name}"
-//    include "micro-services-common:${it.name}"
-//}
-//所有微服务启用依赖 wings-framework
-//file("${rootDir}/wings-framework").eachDirMatch(~/.*/) {
-//    println "${it.name}"
-//    include "wings-framework:${it.name}"
-//}
+include "micro-services-common:common-sentinel:sentinel-api-gateway-adapter-common"
+include "micro-services-common:common-sentinel:sentinel-spring-cloud-gateway-adapter"
 //所有微服务启用依赖 wings-boot

@@ -2,14 +2,6 @@
 subprojects {
     apply plugin: 'java'
     apply plugin: 'io.spring.dependency-management'
-    apply plugin: 'org.springframework.boot'
-
-    configurations {
-        [apiElements, runtimeElements].each {
-            it.outgoing.artifacts.removeIf { it.buildDependencies.getDependencies(null).contains(jar) }
-            it.outgoing.artifact(bootJar)
-        }
-    }
 
     task sourcesJar(type: Jar) {
         from sourceSets.main.allJava

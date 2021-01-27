@@ -3,7 +3,12 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'java'
 
 sourceCompatibility = '11'
-
+configurations {
+    [apiElements, runtimeElements].each {
+        it.outgoing.artifacts.removeIf { it.buildDependencies.getDependencies(null).contains(jar) }
+        it.outgoing.artifact(bootJar)
+    }
+}
 dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
     implementation 'org.springframework.cloud:spring-cloud-starter-bootstrap'
