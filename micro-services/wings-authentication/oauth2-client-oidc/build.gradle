@@ -14,6 +14,7 @@ dependencies {
     compile 'org.springframework.cloud:spring-cloud-starter-bootstrap'
     compile 'org.springframework.boot:spring-boot-starter-security'
     compile 'org.springframework.security:spring-security-oauth2-client'
+    compile 'org.springframework.security:spring-security-oauth2-jose'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'

@@ -2,12 +2,11 @@ package com.works.wings.wingssecurity;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
-public class WingsSecurityApplication {
+public class Oauth2ClientOidc {
     public static void main(String[] args) {
-        SpringApplication.run(WingsSecurityApplication.class, args);
+        SpringApplication.run(Oauth2ClientOidc.class, args);
     }
 
 }

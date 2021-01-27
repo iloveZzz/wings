@@ -24,12 +24,10 @@ public class SecurityConfig {
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
-				.authorizeRequests(authorizeRequests ->
-						authorizeRequests.anyRequest().authenticated()
+				.authorizeRequests(authorize -> authorize
+						.anyRequest().authenticated()
 				)
-				.oauth2Login(oauth2Login ->
-						oauth2Login.loginPage("/oauth2/authorization/messaging-client-oidc"))
-				.oauth2Client(withDefaults());
+				.oauth2Login(withDefaults());
 		return http.build();
 	}
 	// formatter:on

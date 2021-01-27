@@ -73,6 +73,6 @@ public class AuthorizationServerConfig {
 
 	@Bean
 	public ProviderSettings providerSettings() {
-		return new ProviderSettings().issuer("http://localhost:9000");
+		return new ProviderSettings().issuer("http://authserver:9000");
 	}
 }

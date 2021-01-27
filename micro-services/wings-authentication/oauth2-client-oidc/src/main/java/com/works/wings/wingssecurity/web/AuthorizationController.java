@@ -20,10 +20,10 @@ import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.annotation.RegisteredOAuth2AuthorizedClient;
 import org.springframework.security.oauth2.core.OAuth2Error;
 import org.springframework.security.oauth2.core.endpoint.OAuth2ParameterNames;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,7 +35,7 @@ import static org.springframework.security.oauth2.client.web.reactive.function.c
  * @author Joe Grandja
  * @since 0.0.1
  */
-@Controller
+@RestController
 public class AuthorizationController {
 	private final WebClient webClient;
 	private final String messagesBaseUri;

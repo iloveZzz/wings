@@ -46,7 +46,7 @@ class OAuth2TokenIssuerUtil {
 	static Jwt issueJwtAccessToken(JwtEncoder jwtEncoder, String subject, String audience, Set<String> scopes, Duration tokenTimeToLive) {
 		JoseHeader joseHeader = JoseHeader.withAlgorithm(SignatureAlgorithm.RS256).build();
 
-		String issuer = "http://localhost:9000";		// TODO Allow configuration for issuer claim
+		String issuer = "http://authserver:9000";		// TODO Allow configuration for issuer claim
 		Instant issuedAt = Instant.now();
 		Instant expiresAt = issuedAt.plus(tokenTimeToLive);
 
@@ -66,7 +66,7 @@ class OAuth2TokenIssuerUtil {
 	static Jwt issueIdToken(JwtEncoder jwtEncoder, String subject, String audience, String nonce) {
 		JoseHeader joseHeader = JoseHeader.withAlgorithm(SignatureAlgorithm.RS256).build();
 
-		String issuer = "http://localhost:9000";		// TODO Allow configuration for issuer claim
+		String issuer = "http://authserver:9000";		// TODO Allow configuration for issuer claim
 		Instant issuedAt = Instant.now();
 		Instant expiresAt = issuedAt.plus(30, ChronoUnit.MINUTES);		// TODO Allow configuration for id token time-to-live
 
