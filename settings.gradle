@@ -28,7 +28,7 @@ rootProject.name = 'wings-cloud'
 
 //所有微服务项目
 include "micro-services:wings-authentication:oauth2-client-oidc"
-include "micro-services:wings-authentication:oauth2-webflux-resource-server"
+include "micro-services:wings-authentication:oauth2-resource-server"
 include "micro-services:wings-authentication:oauth2-authorization"
 include "micro-services:wings-authentication:oauth2-authorization-server"
 include "micro-services:wings-config-server"
@@ -38,3 +38,4 @@ include "micro-services:wings-service-discover:eureka-server"
 include "micro-services-common:common-sentinel:sentinel-api-gateway-adapter-common"
 include "micro-services-common:common-sentinel:sentinel-spring-cloud-gateway-adapter"
 //所有微服务启用依赖 wings-boot
+include "wings-framework:wings-antlr4-sql"
