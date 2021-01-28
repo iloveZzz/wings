@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package sample.config;
+package com.works.wings.auth.config;
 
 import java.util.UUID;
 
@@ -21,7 +21,8 @@ import com.nimbusds.jose.jwk.JWKSet;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
-import sample.jose.Jwks;
+import com.works.wings.auth.clientRepository.InMysqlRegisteredClientRepository;
+import com.works.wings.auth.jose.Jwks;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -43,7 +44,6 @@ import org.springframework.security.oauth2.server.authorization.config.ProviderS
 @Import(OAuth2AuthorizationServerConfiguration.class)
 public class AuthorizationServerConfig {
 
-	// @formatter:off
 	@Bean
 	public RegisteredClientRepository registeredClientRepository() {
 		RegisteredClient registeredClient = RegisteredClient.withId(UUID.randomUUID().toString())
@@ -60,9 +60,9 @@ public class AuthorizationServerConfig {
 				.scope("message.write")
 				.clientSettings(clientSettings -> clientSettings.requireUserConsent(true))
 				.build();
+		new InMysqlRegisteredClientRepository(registeredClient);
 		return new InMemoryRegisteredClientRepository(registeredClient);
 	}
-	// @formatter:on
 
 	@Bean
 	public JWKSource<SecurityContext> jwkSource() {
