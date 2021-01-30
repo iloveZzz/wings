@@ -1,4 +1,4 @@
-package com.works.wings.wingssecurity;
+package com.works.wings.reousrce;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

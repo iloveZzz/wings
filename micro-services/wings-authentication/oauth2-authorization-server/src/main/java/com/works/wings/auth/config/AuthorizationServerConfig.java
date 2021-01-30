@@ -15,6 +15,7 @@
  */
 package com.works.wings.auth.config;
 
+import java.util.Set;
 import java.util.UUID;
 
 import com.nimbusds.jose.jwk.JWKSet;
@@ -51,13 +52,13 @@ public class AuthorizationServerConfig {
 				.clientSecret("secret")
 				.clientAuthenticationMethod(ClientAuthenticationMethod.BASIC)
 				.authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
+				.authorizationGrantType(AuthorizationGrantType.PASSWORD)
 				.authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
 				.authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
+				.redirectUri("http://localhost:8080/login/oauth2/code/messaging-client-authorization-code")
 				.redirectUri("http://localhost:8080/login/oauth2/code/messaging-client-oidc")
-				.redirectUri("http://localhost:8080/authorized")
-				.scope(OidcScopes.OPENID)
-				.scope("message.read")
-				.scope("message.write")
+				.scopes((t)->t.addAll(Set.of(OidcScopes.OPENID, OidcScopes.PROFILE, OidcScopes.EMAIL, OidcScopes.ADDRESS)))
+				.scope("ceaas")
 				.clientSettings(clientSettings -> clientSettings.requireUserConsent(true))
 				.build();
 		new InMysqlRegisteredClientRepository(registeredClient);

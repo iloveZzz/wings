@@ -1,0 +1,10 @@
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://authserver:9000
+          jwk-set-uri: http://authserver:9000/oauth2/jwks
+server:
+  port: 8091

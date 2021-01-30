@@ -64,9 +64,9 @@ allprojects {
         }
     }
     ext {
-        set('springCloudVersion', "2020.0.0")
+        set('springCloudVersion', "2020.0.1")
         set('springBootVersion', "2.4.2")
-        set('sentinelVersion', "1.8.1-SNAPSHOT")
+        set('sentinelVersion', "1.8.0")
     }
     uploadArchives {
         repositories {

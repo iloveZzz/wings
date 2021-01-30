@@ -1,4 +1,4 @@
-package com.works.wings.wingssecurity.config;
+package com.works.wings.reousrce.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
