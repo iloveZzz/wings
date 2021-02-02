@@ -1,0 +1,34 @@
+server:
+  port: 9091
+spring:
+  redis:
+    host: 106.13.212.254
+    port: 7000
+    password: 359409
+    connect-timeout: 5000
+    lettuce:
+      pool:
+        max-active: 200
+        max-wait: 60000
+        max-idle: 100
+        min-idle: 0
+      cluster:
+        refresh:
+          dynamic-refresh-sources: true
+          adaptive: true
+    sentinel: #配置哨兵
+      master: mymaster1
+      nodes:
+        - 106.13.212.254:26379
+        - 106.13.212.254:26380
+        - 106.13.212.254:26381
+      password: 359409
+    cluster: #配置集群
+      nodes:
+        - 106.13.212.254:7000
+        - 106.13.212.254:7001
+        - 106.13.212.254:7002
+        - 106.13.212.254:7003
+        - 106.13.212.254:7004
+        - 106.13.212.254:7005
+      max-redirects: 3

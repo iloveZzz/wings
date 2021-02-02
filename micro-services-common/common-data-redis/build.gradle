@@ -1,0 +1,17 @@
+apply plugin: 'java'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.springframework.boot'
+sourceCompatibility = '11'
+dependencies {
+    compile 'org.springframework.cloud:spring-cloud-starter-bootstrap'
+    compile 'org.springframework.data:spring-data-redis'
+    compile 'io.lettuce:lettuce-core:6.0.2.RELEASE'
+    compile group: 'org.apache.commons', name: 'commons-pool2', version: '2.9.0'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
